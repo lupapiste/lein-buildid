@@ -33,6 +33,8 @@ Content of the file looks like this (sans line breaks):
 
 ## Usage
 
+[![Clojars Project](http://clojars.org/lupapiste/lein-buildid/latest-version.svg)](http://clojars.org/lupapiste/lein-buildid)
+
 Put `[lupapiste/lein-buildid "0.4.0"]` into the `:plugins` vector of your project.clj.
 
 Run `lein buildid` on Jenkins before packaging your Clojure software.
