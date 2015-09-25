@@ -1,5 +1,5 @@
 (defproject lupapiste/lein-buildid "0.4.0"
-  :description "Create build ID for environment variables"
+  :description "Create build information file from environment variables"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"
             :distribution :repo}
