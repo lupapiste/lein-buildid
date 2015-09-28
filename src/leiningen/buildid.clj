@@ -11,7 +11,16 @@
                         "JENKINS_URL"
                         "EXECUTOR_NUMBER"
                         "JAVA_HOME"
-                        "WORKSPACE"])
+                        "WORKSPACE"
+                        "SVN_REVISION"
+                        "CVS_BRANCH"
+                        "GIT_COMMIT"
+                        "GIT_URL"
+                        "GIT_BRANCH"
+                        "PROMOTED_URL"
+                        "PROMOTED_JOB_NAME"
+                        "PROMOTED_NUMBER"
+                        "PROMOTED_ID"])
 
 (defn get-hg-branch []
   (let [r (sh "hg" "branch")]
