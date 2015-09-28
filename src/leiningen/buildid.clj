@@ -22,6 +22,12 @@
                         "PROMOTED_NUMBER"
                         "PROMOTED_ID"])
 
+(defn ensure-dir! [dir-name]
+  (let [dir (clojure.java.io/file dir-name)]
+    (if (.exists dir)
+      (.isDirectory dir)
+      (.mkdir dir))))
+
 (defn get-hg-branch []
   (let [r (sh "hg" "branch")]
     (if (zero? (:exit r))
@@ -37,5 +43,11 @@
          :hg-branch (get-hg-branch)}
         (map (fn [e] [(-> e (.replace \_ \-) (.toLowerCase) (keyword)) (or (System/getenv e) "")]) environment-names)))
 
+(def filename "buildid.edn")
+
 (defn buildid [project & args]
-  (spit "./resources/buildid.edn" (make-buildinfo)))
+  (let [target-dir-name "resources"
+        separator (java.io.File/separator)]
+    (if (ensure-dir! target-dir-name)
+      (spit (str target-dir-name separator filename) (make-buildinfo))
+      (throw (Exception. (str target-dir-name " is not a directory!"))))))
