@@ -13,3 +13,4 @@ pom.xml.asc
 /bin/
 .classpath
 .settings/
+resources/buildid.edn

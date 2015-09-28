@@ -14,7 +14,8 @@ The file will contain the following information:
 
 Environment variable names are converted to kebab-case.
 
-Content of the file looks like this (sans line breaks):
+Content of the file looks like this (for a mercurial project that doesn't use
+build promotion, sans line breaks):
 
 ```clojure
 {:build-number "4460",
@@ -27,6 +28,15 @@ Content of the file looks like this (sans line breaks):
  :executor-number "1",
  :java-home "/usr/java/jdk1.8.0_31",
  :workspace "/var/lib/jenkins/jobs/Some-Build/workspace",
+ :svn-revision "",
+ :cvs-branch "",
+ :git-commit "",
+ :git-url "",
+ :git-branch "",
+ :promoted-url "",
+ :promoted-job-name ""
+ :promoted-number "",
+ :promoted-id "",
  :host "jenkins.example.com",
  :hg-branch "master",
  :time 1443161425921}
@@ -61,7 +71,16 @@ You might want to place this sample file in your local development environment:
  :node-name ""
  :time 0
  :job-name ""
- :hg-branch "no-branch"}
+ :hg-branch "no-branch",
+ :svn-revision "",
+ :cvs-branch "",
+ :git-commit "",
+ :git-url "",
+ :git-branch "",
+ :promoted-url "",
+ :promoted-job-name ""
+ :promoted-number "",
+ :promoted-id ""}
 ```
 
 ## License
