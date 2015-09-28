@@ -85,6 +85,6 @@ You might want to place this sample file in your local development environment:
 
 ## License
 
-Copyright © 2012-2015 Solita Oy
+Copyright © 2012-2015 [Solita Oy](http://www.solita.fi/)
 
 Distributed under the Eclipse Public License, the same as Clojure.
