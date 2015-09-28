@@ -1,5 +1,6 @@
 (ns leiningen.buildid
   (:require [clojure.java.shell :refer [sh]]
+            [clojure.java.io :as io]
             [clojure.string :as s]))
 
 (def environment-names ["BUILD_NUMBER"
@@ -23,10 +24,13 @@
                         "PROMOTED_ID"])
 
 (defn ensure-dir! [dir-name]
-  (let [dir (clojure.java.io/file dir-name)]
+  (let [dir (io/file dir-name)]
     (if (.exists dir)
       (.isDirectory dir)
       (.mkdir dir))))
+
+(defn hg-repo? []
+  (.isDirectory (io/file ".hg")))
 
 (defn get-hg-branch []
   (let [r (sh "hg" "branch")]
@@ -40,7 +44,7 @@
 (defn make-buildinfo []
   (into {:time (System/currentTimeMillis)
          :host (hostname)
-         :hg-branch (get-hg-branch)}
+         :hg-branch (if (hg-repo?) (get-hg-branch) "")}
         (map (fn [e] [(-> e (.replace \_ \-) (.toLowerCase) (keyword)) (or (System/getenv e) "")]) environment-names)))
 
 (def filename "buildid.edn")
