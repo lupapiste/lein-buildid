@@ -5,7 +5,7 @@ A Leiningen plugin that writes resources/buildid.edn file under your project.
 The file will contain the following information:
 * `BUILD_NUMBER`, `BUILD_ID`, `BUILD_URL`, `NODE_NAME`, `JOB_NAME`,
   `BUILD_TAG`, `JENKINS_URL`, `EXECUTOR_NUMBER`, `JAVA_HOME`, `WORKSPACE`,
-  `SVN_REVISION`, `CVS_BRANCH`, `GIT_COMMIT`, `GIT_URL`, `GIT_BRANCH`,
+  `SVN_REVISION`, `CVS_BRANCH`, `GIT_COMMIT`, `GIT_URL`, `GIT_BRANCH`, `GIT_TAG`,
   `PROMOTED_URL`, `PROMOTED_JOB_NAME`, `PROMOTED_NUMBER` and `PROMOTED_ID`
   environment variables [set by Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Building+a+software+project#Buildingasoftwareproject-below).
 * `time`: build timestamp in milliseconds (System/currentTimeMillis)
@@ -33,6 +33,7 @@ build promotion, sans line breaks):
  :git-commit "",
  :git-url "",
  :git-branch "",
+ :git-tag "",
  :promoted-url "",
  :promoted-job-name ""
  :promoted-number "",

@@ -18,6 +18,7 @@
                         "GIT_COMMIT"
                         "GIT_URL"
                         "GIT_BRANCH"
+                        "GIT_TAG"
                         "PROMOTED_URL"
                         "PROMOTED_JOB_NAME"
                         "PROMOTED_NUMBER"
